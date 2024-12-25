@@ -17,7 +17,7 @@ from logging.handlers import TimedRotatingFileHandler
 # logger = logging.getLogger(__name__)
 # logger.addHandler(__handle)
 
-# logger = logging.getLogger()
+logger = logging.getLogger()
 # stream_handler = logging.StreamHandler(sys.stdout)
 # logger.level = logging.DEBUG
 # logger.addHandler(stream_handler)
