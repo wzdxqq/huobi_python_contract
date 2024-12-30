@@ -1,6 +1,6 @@
 import json
 
-from alpha.utils.http_utils import post
+from alpha.utils.http_utils import *
 
 
 class RestUnifiedAccountUsdtSwap:
@@ -13,11 +13,19 @@ class RestUnifiedAccountUsdtSwap:
 
     def swap_unified_account_info(self, data: dict = None) -> json:
         path = "/linear-swap-api/v3/unified_account_info"
-        return get(self.access_key, self.secret_key, self.host, path, data)
+        path = "{}?{}".format(
+            path,
+            get_url_suffix("get", self.access_key, self.secret_key, self.host, path),
+        )
+        return get(self.host, path, data)
 
     def swap_linear_swap_overview_account_info(self, data: dict = None) -> json:
         path = "/linear-swap-api/v3/linear_swap_overview_account_info"
-        return get(self.access_key, self.secret_key, self.host, path, data)
+        path = "{}?{}".format(
+            path,
+            get_url_suffix("get", self.access_key, self.secret_key, self.host, path),
+        )
+        return get(self.host, path, data)
 
     def swap_linear_swap_fee_switch(self, data: dict = None) -> json:
         path = "/linear-swap-api/v3/linear_swap_fee_switch"
@@ -33,9 +41,12 @@ class RestUnifiedAccountUsdtSwap:
 
     def swap_swap_unified_account_type(self, data: dict = None) -> json:
         path = "/linear-swap-api/v3/swap_unified_account_type"
-        return get(self.access_key, self.secret_key, self.host, path, data)
+        path = "{}?{}".format(
+            path,
+            get_url_suffix("get", self.access_key, self.secret_key, self.host, path),
+        )
+        return get(self.host, path, data)
 
     def swap_swap_switch_account_type(self, data: dict = None) -> json:
         path = "/linear-swap-api/v3/swap_switch_account_type"
         return post(self.access_key, self.secret_key, self.host, path, data)
-
